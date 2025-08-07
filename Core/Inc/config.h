@@ -11,7 +11,7 @@
 
 //Dangerzone, do not touch!!
 #define DISPLAY_TYPE_M365DASHBOARD (1<<1)
-#define DISPLAY_TYPE_DEBUG (1<<0)// For ASCII-Output in Debug mode);
+#define DISPLAY_TYPE_DEBUG (1<<0)							// For ASCII-Output in Debug mode);
 
 #define TRIGGER_OFFSET_ADC 50
 #define TRIGGER_DEFAULT 2020
@@ -19,16 +19,20 @@
 
 #define SPEEDFILTER 3
 
-//#define ADCTHROTTLE
-//#define FAST_LOOP_LOG
+#define ADCTHROTTLE // passe la commande de throttle en ADC direct
 //#define DISABLE_DYNAMIC_ADC
 
+#define FAST_LOOP_LOG // envoi continu des trames de télémétrie au Dashboard Pro
+
+// Active la communication Bluetooth « Pro »
+#define ENABLE_BT_PRO true
+
 // choose your display here
-#define DISPLAY_TYPE DISPLAY_TYPE_M365DASHBOARD
+#define DISPLAY_TYPE DISPLAY_TYPE_M365_PRO_DASHBOARD
 
 // calibration factors for voltage and current
-#define CAL_BAT_V 14 // ADC counts * CAL_BAT_V = Battery voltage in mV
-#define CAL_I 38// ADC counts * CAL_I = current in mA
+#define CAL_BAT_V 14 	// ADC counts * CAL_BAT_V = Battery voltage in mV
+#define CAL_I 38		// ADC counts * CAL_I = current in mA
 
 // gains for PI controls
 #define P_FACTOR_I_Q 100
@@ -46,15 +50,15 @@
 #define WHEEL_CIRCUMFERENCE 550 //690 for original M365 motor
 #define GEAR_RATIO 11 //15 for original M365 motor
 
-// speed limits for individual modes in kph
-#define SPEEDLIMIT_ECO     20
-#define SPEEDLIMIT_NORMAL  25
-#define SPEEDLIMIT_SPORT   34
+// speed limits for invividual modes in kph
+#define SPEEDLIMIT_ECO 15
+#define SPEEDLIMIT_NORMAL 25
+#define SPEEDLIMIT_SPORT 35
 
-// motor current limits for individual modes in mA, see default settings at https://max.cfw.sh/#
-#define PH_CURRENT_MAX_ECO     17000   // Eco max current 17.0A
-#define PH_CURRENT_MAX_NORMAL  32000   // Drive max current 32.0A
-#define PH_CURRENT_MAX_SPORT   55000   // Sport max current 55.0A
+// motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
+#define PH_CURRENT_MAX_ECO 17000
+#define PH_CURRENT_MAX_NORMAL 32000
+#define PH_CURRENT_MAX_SPORT 55000
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 20000
@@ -63,12 +67,13 @@
 #define FW_CURRENT_MAX 18000 //max id
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX      55000   // Sport max draw 55.0A
-#define REGEN_CURRENT_MAX       10000
+#define BATTERYCURRENT_MAX 15000
+#define REGEN_CURRENT_MAX 8000
 
 // battery voltage limits in mV
 #define BATTERYVOLTAGE_MIN 33000
-#define BATTERYVOLTAGE_MAX 43010   // Voltage limit 43.01V
+#define BATTERYVOLTAGE_MAX 42000
+
 
 // motor spinning direction
 #define REVERSE 1 //1 for original M365 motor
@@ -78,30 +83,29 @@
 #define P_FACTOR_PLL 10 //7 for original M365 motor
 #define I_FACTOR_PLL 10 //7 for original M365 motor
 
-// --- Paramètres de la gâchette (throttle lever params) ---
-#define THROTTLE_MODE                         THROTTLE_MODE_SPEED_BASED
-#define THROTTLE_CURRENT_RAISE_COEFF          300   // Throttle current raising coefficient
+// Active le régulateur de vitesse (cruise control) via double-clic dash
+#define ENABLE_CRUISE_CONTROL         true
+// Durée d’activation du cruise (sec)
+#define CRUISE_ENABLE_DELAY_SEC       3
 
-// --- Paramètres du levier de frein (brake lever params) ---
-#define BRAKE_LEVER_VIRTUAL_LIMIT             115   // Lever virtual limit
-#define BRAKE_MIN_PHASE_CURRENT               8000  // Min phase current (mA)
-#define BRAKE_MAX_PHASE_CURRENT               30000 // Max phase current (mA)
-#define BRAKE_CURRENT_RAISE_COEFF             500   // Brake current raising coefficient
+// Feux arrière toujours allumés (même en mode veille)
+#define ENABLE_REAR_LIGHT_ALWAYS_ON   false
 
-// --- Feu de freinage (brake light) ---
-#define BRAKE_LIGHT_MODE                      BRAKE_LIGHT_MODE_STOCK
-#define BRAKE_LIGHT_FLASH_FREQUENCY_HZ        235   // Brake light flash frequency
+// Feux avant automatiques selon luminosité ambiante (via capteur ADC)
+#define ENABLE_AUTO_HEADLIGHT         false
+// Seuil lumineux ADC pour allumer / éteindre
+#define AUTO_HEADLIGHT_ADC_THRESHOLD  1500  
 
-// --- Cruise control delay ---
-#define CRUISE_CONTROL_DELAY_SECONDS          5
+// Inversion dynamique du throttle (pour Mi-Home smooth start)
+#define ENABLE_SMOOTH_START           true
+// Durée d’accélération douce (ms)
+#define SMOOTH_START_DURATION_MS      500  
 
-// --- Taille de roue pour calcul de vitesse ---
-#define WHEEL_DIAMETER_INCHES                 8.5f  // 8.5 inches
+// Mode Start & Go : démarrage sans appuyer sur accélérateur
+#define ENABLE_START_AND_GO           false
 
-// --- Spoofing de version (optionnel) ---
-#define VERSION_SPOOFING_ENABLED              1     // Affiche « DRV155 » ou autre
+#define ENABLE_TEMPERATURE_SENSOR  true
 
-// Active l’interface UART pour dashboard Pro (envoie les trames télémétrie)
-#define ENABLE_DASHBOARD_UART                 1
+#define TEMPERATURE_ADC_CHANNEL     3     // à adapter selon votre hardware
 
 #endif /* CONFIG_H_ */
