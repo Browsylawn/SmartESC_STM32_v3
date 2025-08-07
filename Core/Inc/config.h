@@ -11,7 +11,7 @@
 
 //Dangerzone, do not touch!!
 #define DISPLAY_TYPE_M365DASHBOARD (1<<1)
-#define DISPLAY_TYPE_DEBUG (1<<0)							// For ASCII-Output in Debug mode);
+#define DISPLAY_TYPE_DEBUG (1<<0)// For ASCII-Output in Debug mode);
 
 #define TRIGGER_OFFSET_ADC 50
 #define TRIGGER_DEFAULT 2020
@@ -27,8 +27,8 @@
 #define DISPLAY_TYPE DISPLAY_TYPE_M365DASHBOARD
 
 // calibration factors for voltage and current
-#define CAL_BAT_V 14 	// ADC counts * CAL_BAT_V = Battery voltage in mV
-#define CAL_I 38		// ADC counts * CAL_I = current in mA
+#define CAL_BAT_V 14 // ADC counts * CAL_BAT_V = Battery voltage in mV
+#define CAL_I 38// ADC counts * CAL_I = current in mA
 
 // gains for PI controls
 #define P_FACTOR_I_Q 100
@@ -46,15 +46,15 @@
 #define WHEEL_CIRCUMFERENCE 550 //690 for original M365 motor
 #define GEAR_RATIO 11 //15 for original M365 motor
 
-// speed limits for invividual modes in kph
-#define SPEEDLIMIT_ECO 6
-#define SPEEDLIMIT_NORMAL 20
-#define SPEEDLIMIT_SPORT 50
+// speed limits for individual modes in kph
+#define SPEEDLIMIT_ECO     20
+#define SPEEDLIMIT_NORMAL  25
+#define SPEEDLIMIT_SPORT   34
 
-// motor current limits for invividual modes in mA, see default settings at https://max.cfw.sh/#
-#define PH_CURRENT_MAX_ECO 16000
-#define PH_CURRENT_MAX_NORMAL 28000
-#define PH_CURRENT_MAX_SPORT 55000
+// motor current limits for individual modes in mA, see default settings at https://max.cfw.sh/#
+#define PH_CURRENT_MAX_ECO     17000   // Eco max current 17.0A
+#define PH_CURRENT_MAX_NORMAL  32000   // Drive max current 32.0A
+#define PH_CURRENT_MAX_SPORT   55000   // Sport max current 55.0A
 
 // motor current limit for regen in mA
 #define REGEN_CURRENT 20000
@@ -63,13 +63,12 @@
 #define FW_CURRENT_MAX 18000 //max id
 
 // maximum battery currents in mA
-#define BATTERYCURRENT_MAX 14500
-#define REGEN_CURRENT_MAX 10000
+#define BATTERYCURRENT_MAX      55000   // Sport max draw 55.0A
+#define REGEN_CURRENT_MAX       10000
 
 // battery voltage limits in mV
 #define BATTERYVOLTAGE_MIN 33000
-#define BATTERYVOLTAGE_MAX 42000
-
+#define BATTERYVOLTAGE_MAX 43010   // Voltage limit 43.01V
 
 // motor spinning direction
 #define REVERSE 1 //1 for original M365 motor
