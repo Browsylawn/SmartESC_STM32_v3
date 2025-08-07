@@ -78,4 +78,30 @@
 #define P_FACTOR_PLL 10 //7 for original M365 motor
 #define I_FACTOR_PLL 10 //7 for original M365 motor
 
+// --- Paramètres de la gâchette (throttle lever params) ---
+#define THROTTLE_MODE                         THROTTLE_MODE_SPEED_BASED
+#define THROTTLE_CURRENT_RAISE_COEFF          300   // Throttle current raising coefficient
+
+// --- Paramètres du levier de frein (brake lever params) ---
+#define BRAKE_LEVER_VIRTUAL_LIMIT             115   // Lever virtual limit
+#define BRAKE_MIN_PHASE_CURRENT               8000  // Min phase current (mA)
+#define BRAKE_MAX_PHASE_CURRENT               30000 // Max phase current (mA)
+#define BRAKE_CURRENT_RAISE_COEFF             500   // Brake current raising coefficient
+
+// --- Feu de freinage (brake light) ---
+#define BRAKE_LIGHT_MODE                      BRAKE_LIGHT_MODE_STOCK
+#define BRAKE_LIGHT_FLASH_FREQUENCY_HZ        235   // Brake light flash frequency
+
+// --- Cruise control delay ---
+#define CRUISE_CONTROL_DELAY_SECONDS          5
+
+// --- Taille de roue pour calcul de vitesse ---
+#define WHEEL_DIAMETER_INCHES                 8.5f  // 8.5 inches
+
+// --- Spoofing de version (optionnel) ---
+#define VERSION_SPOOFING_ENABLED              1     // Affiche « DRV155 » ou autre
+
+// Active l’interface UART pour dashboard Pro (envoie les trames télémétrie)
+#define ENABLE_DASHBOARD_UART                 1
+
 #endif /* CONFIG_H_ */
