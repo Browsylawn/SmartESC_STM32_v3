@@ -19,16 +19,12 @@
 
 #define SPEEDFILTER 3
 
-#define ADCTHROTTLE // passe la commande de throttle en ADC direct
+#define ADCTHROTTLE
+#define FAST_LOOP_LOG
 //#define DISABLE_DYNAMIC_ADC
 
-#define FAST_LOOP_LOG // envoi continu des trames de télémétrie au Dashboard Pro
-
-// Active la communication Bluetooth « Pro »
-#define ENABLE_BT_PRO true
-
 // choose your display here
-#define DISPLAY_TYPE DISPLAY_TYPE_M365_PRO_DASHBOARD
+#define DISPLAY_TYPE DISPLAY_TYPE_M365DASHBOARD
 
 // calibration factors for voltage and current
 #define CAL_BAT_V 14 	// ADC counts * CAL_BAT_V = Battery voltage in mV
@@ -82,30 +78,5 @@
 #define SPEED_PLL 1 //1 for using PLL, 0 for angle extrapolation
 #define P_FACTOR_PLL 10 //7 for original M365 motor
 #define I_FACTOR_PLL 10 //7 for original M365 motor
-
-// Active le régulateur de vitesse (cruise control) via double-clic dash
-#define ENABLE_CRUISE_CONTROL         true
-// Durée d’activation du cruise (sec)
-#define CRUISE_ENABLE_DELAY_SEC       3
-
-// Feux arrière toujours allumés (même en mode veille)
-#define ENABLE_REAR_LIGHT_ALWAYS_ON   false
-
-// Feux avant automatiques selon luminosité ambiante (via capteur ADC)
-#define ENABLE_AUTO_HEADLIGHT         false
-// Seuil lumineux ADC pour allumer / éteindre
-#define AUTO_HEADLIGHT_ADC_THRESHOLD  1500  
-
-// Inversion dynamique du throttle (pour Mi-Home smooth start)
-#define ENABLE_SMOOTH_START           true
-// Durée d’accélération douce (ms)
-#define SMOOTH_START_DURATION_MS      500  
-
-// Mode Start & Go : démarrage sans appuyer sur accélérateur
-#define ENABLE_START_AND_GO           false
-
-#define ENABLE_TEMPERATURE_SENSOR  true
-
-#define TEMPERATURE_ADC_CHANNEL     3     // à adapter selon votre hardware
 
 #endif /* CONFIG_H_ */
